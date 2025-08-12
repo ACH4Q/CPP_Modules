@@ -3,12 +3,12 @@
 
 void Contacts::set_firstname(std::string firstname)
 {
-    Contacts::firstname = firstname;
+    this->firstname = firstname;
 }
 
 void Contacts::set_lastname(std::string lastname)
 {
-    Contacts::lastname = lastname;
+    this->lastname = lastname;
 }
 
 void Contacts::set_nickname(std::string nickname)
@@ -18,12 +18,12 @@ void Contacts::set_nickname(std::string nickname)
 
 void Contacts::set_phonenumber(std::string phonenumber)
 {
-    Contacts::phonenumber = phonenumber;
+    this->phonenumber = phonenumber;
 }
 
 void Contacts::set_darksecret(std::string darksecret)
 {
-    Contacts::darksecret = darksecret;
+    this->darksecret = darksecret;
 }
 
 std::string Contacts::get_firstname()

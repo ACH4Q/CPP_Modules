@@ -3,10 +3,10 @@
 #include <ctime>
 
 
-int Account::_nbAccounts = 0;
-int Account::_totalNbWithdrawals = 0;
-int Account::_totalNbDeposits = 0;
-int	Account::_totalAmount = 0;
+int Account::_nbAccounts;
+int Account::_totalNbWithdrawals;
+int Account::_totalNbDeposits;
+int	Account::_totalAmount;
 
 Account::Account(int initial_deposit) : _amount(initial_deposit)
 {
@@ -100,5 +100,3 @@ bool	Account::makeWithdrawal( int withdrawal )
 		std::cout << "refused" << std::endl;
 	return (false);
 }
-
-// Account( int initial_deposit );

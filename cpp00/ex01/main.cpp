@@ -9,7 +9,7 @@ int main(int ac, char **av)
 
     if (ac == 1)
     {
-        std::cout << "Welcome to My Awesome PhoneBook!" << std::endl;
+        std::cout << "Welcome to My PhoneBook!" << std::endl;
         std::cout << "----------------------------------" << std::endl;
         do {
             if (std::cin.fail())

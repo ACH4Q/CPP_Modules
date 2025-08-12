@@ -1,5 +1,6 @@
 #include "PhoneBook.hpp"
 
+
 int PhoneBook::index = 0;
 
 int validateName(const std::string &str)
@@ -11,9 +12,9 @@ int validateName(const std::string &str)
     }
     for (size_t i = 0; i < str.length(); i++)
     {
-        if (!isalpha(str[i]) && str[i] != ' ' && str[i] != '-')
+        if (!isalpha(str[i]) || str[i] == ' ' || str[i] == '\t')
         {
-            std::cerr << "Error: Name can only contain letters, spaces and hyphens" << std::endl;
+            std::cerr << "Error: Name can only contain letters" << std::endl;
             return 0;
         }
     }
@@ -29,7 +30,7 @@ int validateNickName(const std::string &str1)
     }
     for (size_t i = 0; i < str1.length(); i++)
     {
-        if (!isalnum(str1[i]))
+        if (!isalnum(str1[i]) || str1[i] == ' ' || str1[i] == '\t')
         {
             std::cerr << "Error: Nickname can only contain alphanumeric characters" << std::endl;
             return 0;

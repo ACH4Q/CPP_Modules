@@ -11,6 +11,9 @@ $(NAME): $(SRC)
 
 clean:
 	rm -f $(NAME)
+	
+fclean : 
+	rm -rf $(NAME)
 
 re: clean all
 
