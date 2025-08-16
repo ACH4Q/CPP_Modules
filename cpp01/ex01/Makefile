@@ -1,6 +1,6 @@
-NAME = 
+NAME = Zombie
 
-SRC = 
+SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp zombieHorde.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -17,4 +17,4 @@ fclean :
 
 re: clean all
 
-.PHONY: all clean re
+.PHONY: all clean re fclean
