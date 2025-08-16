@@ -6,12 +6,11 @@
 class Zombie
 {
 private:
-    std::string zombie;
+    std::string name;
 public:
 
 void announce(void);
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+void setname(std::string name);
 
 Zombie();
 ~Zombie();
@@ -19,6 +18,7 @@ Zombie();
 };
 
 
-
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
 
 #endif
