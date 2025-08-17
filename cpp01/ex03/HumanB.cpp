@@ -5,6 +5,7 @@ HumanB::HumanB(std::string name)
 	this->weapon  = NULL;
 	this->name = name;
 }
+
 void HumanB::attack()
 {
 	if(weapon == NULL)
@@ -14,6 +15,7 @@ void HumanB::attack()
 	}
 	std::cout << this->name << " attacks with their " << weapon->getType() << std::endl;
 }
+
 void HumanB::setWeapon(Weapon &weapon)
 {
 	this->weapon = &weapon;
@@ -21,5 +23,5 @@ void HumanB::setWeapon(Weapon &weapon)
 
 HumanB::~HumanB()
 {
-
+	return;
 }

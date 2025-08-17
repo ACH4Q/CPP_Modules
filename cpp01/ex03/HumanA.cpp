@@ -9,5 +9,5 @@ void HumanA::attack()
 
 HumanA::~HumanA()
 {
-
+	return;
 }

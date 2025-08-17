@@ -20,22 +20,40 @@ int main(int ac , char **av)
 {
 	if(ac != 4)
 	{
-		std::cout << "Usage " << av[0] << " Filename \"string\" \"toreplacestring\"" << std::endl;
+		std::cerr << "Usage " << av[0] << " Filename \"string\" \"toreplacestring\"" << std::endl;
 		return (1);
 	}
+
+	if (std::string(av[2]).empty() || std::string(av[3]).empty())
+	{
+        std::cerr << "Error: Search string cannot be empty." << std::endl;
+        return 1;
+    }
+
 	std::ifstream filein;
 	std::ofstream fileout;
 	std::string str = av[1];
 	filein.open((char *)str.c_str());
 	if(!filein.is_open())
 	{
-		std::cout << "Error: file not found" << std::endl;
+		std::cerr << "Error: file not found" << std::endl;
 		return (1);
 	}
-	fileout.open(str.append(".replace").c_str());
 	filein.seekg(0, filein.end);
 	int size = filein.tellg();
+	if (size == 0)
+	{
+        std::cerr << "The input file is empty." << std::endl;
+        filein.close();
+        return 0;
+    }
 	filein.seekg(0, filein.beg);
+	fileout.open(str.append(".replace").c_str());
+	if(!fileout.is_open())
+	{
+		std::cerr << "Error: file not found" << std::endl;
+		return (1);
+	}
 	std::string buff;
 	buff.resize(size);
 	filein.read((char *)buff.c_str() , size);
