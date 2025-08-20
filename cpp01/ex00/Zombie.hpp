@@ -12,7 +12,7 @@ public:
 void announce(void);
 void setname(std::string name);
 
-Zombie();
+Zombie(std::string _name);
 ~Zombie();
 
 };
