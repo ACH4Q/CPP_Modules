@@ -27,30 +27,45 @@ void Harl::error()
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+int check(std::string lvl)
+{
+    std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    int i = 0;
+    for (; i < 4; i++)
+    {
+        
+        if (lvl == levels[i])
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 void Harl::complain( std::string level)
 {
     void (Harl::*func[4])() = {&Harl::debug ,&Harl::info , &Harl::warning , &Harl::error };
-    switch (level[0])
+    switch (check(level))
     {
-        case "DEBUG"[0] :
+        case 0:
         {
             std::cout << "[ DEBUG ]" << std::endl;
             (this->*func[0])();
             std::cout << std::endl;
         }
-                case "INFO"[0] :
+                case 1 :
         {
             std::cout << "[ INFO ]" << std::endl;
             (this->*func[1])();
             std::cout << std::endl;
         }
-                case "WARNING"[0] :
+                case 2 :
         {
             std::cout << "[ WARNING ]" << std::endl;
             (this->*func[2])();
             std::cout << std::endl;
         }
-                case "ERROR"[0] :
+                case 3 :
         {
             std::cout << "[ ERROR ]" << std::endl;
             (this->*func[3])();
