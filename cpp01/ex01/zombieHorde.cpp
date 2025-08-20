@@ -3,7 +3,7 @@ Zombie* zombieHorde(int N, std::string name)
 {
     if (N < 0)
     {
-        std::cerr << "number is negative" << std::endl;
+        std::cerr << "number should not be negative" << std::endl;
         return 0;
     }
     Zombie* horde = new Zombie[N];
