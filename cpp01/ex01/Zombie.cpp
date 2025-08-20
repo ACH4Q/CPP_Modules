@@ -3,7 +3,6 @@
 
 Zombie::Zombie() 
 {
-    return;
 }
 
 Zombie::~Zombie()

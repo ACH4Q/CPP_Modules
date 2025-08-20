@@ -11,7 +11,6 @@ public:
 
 void announce(void);
 void setname(std::string name);
-
 Zombie(std::string _name);
 ~Zombie();
 
