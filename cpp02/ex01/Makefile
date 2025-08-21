@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = fixed
 
 SRC = main.cpp Fixed.cpp
 
