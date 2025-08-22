@@ -1,8 +1,8 @@
-NAME = Zombie
+NAME = fixed
 
 SRC = main.cpp Fixed.cpp
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -std=c++98
 
 all: $(NAME)
 
