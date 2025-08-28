@@ -144,34 +144,30 @@ Fixed&			Fixed::operator--()
     return(*this);
 }
 
-Fixed&			    Fixed::min(Fixed& F1, Fixed& F2)
-{
+Fixed& Fixed::min(Fixed& F1, Fixed& F2) {
     if (F1 < F2)
-        return (F1);
-    else if (F2 < F1)
-        return (F2);
+        return F1;
+    else
+        return F2;
 }
 
-const Fixed&		Fixed::min(const Fixed& F1, const Fixed& F2)
-{
+const Fixed& Fixed::min(const Fixed& F1, const Fixed& F2) {
     if (F1 < F2)
-        return (F1);
-    else if (F2 < F1)
-        return (F2);
+        return F1;
+    else
+        return F2;
 }
 
-Fixed&			    Fixed::max(Fixed& F1, Fixed& F2)
-{
+Fixed& Fixed::max(Fixed& F1, Fixed& F2) {
     if (F1 > F2)
-        return (F1);
-    else if (F2 > F1)
-        return (F2);
+        return F1;
+    else
+        return F2;
 }
 
-const Fixed&		Fixed::max(const Fixed& F1, const Fixed& F2)
-{
+const Fixed& Fixed::max(const Fixed& F1, const Fixed& F2) {
     if (F1 > F2)
-        return (F1);
-    else if (F2 > F1)
-        return (F2);
+        return F1;
+    else
+        return F2;
 }
