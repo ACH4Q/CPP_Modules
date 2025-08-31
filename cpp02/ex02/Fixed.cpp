@@ -109,12 +109,14 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::operator++() 
 { 
-    Fixed_point += 1; return *this; 
+    Fixed_point += 1; 
+    return *this; 
 }
 
 Fixed& Fixed::operator--() 
 { 
-    Fixed_point -= 1; return *this; 
+    Fixed_point -= 1; 
+    return *this; 
 }
 
 Fixed& Fixed::min(Fixed& F1, Fixed& F2) 

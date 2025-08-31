@@ -1,6 +1,6 @@
 NAME = fixed
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp
 
 FLAGS = -std=c++98
 
