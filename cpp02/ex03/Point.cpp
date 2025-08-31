@@ -1,48 +1,44 @@
 #include "Point.hpp"
 
-Point::Point() : point_x(0) , point_y(0) {}
+Point::Point() : x(0), y(0) {}
+
+Point::Point(float x, float y) : x(x), y(y) {}
+
+Point::Point(const Point& other) : x(other.x), y(other.y) {}
+
+Point& Point::operator=(const Point& other)
+{ 
+    (void)other; 
+    return *this;
+}
 
 Point::~Point() {}
 
-Point::Point(float fl_x, float fl_y) : point_x(fl_y) , point_y(fl_y) {}
-
-Point::Point(const Point& copy) : point_x(0) , point_y(0)
-{
-    *this = copy;
+Fixed Point::getX() const 
+{ 
+    return x; 
 }
-Point &Point::operator=(const Point& other)
-{
-    (void)other;
-    return (*this);
+Fixed Point::getY() const 
+{ 
+    return y; 
 }
 
-
-Fixed Point::getX() const
+static Fixed area(Point a, Point b, Point c)
 {
-    return point_x;
+    return (a.getX()*(b.getY()-c.getY()) + 
+            b.getX()*(c.getY()-a.getY()) + 
+            c.getX()*(a.getY()-b.getY())) / Fixed(2);
 }
 
-Fixed Point::getY() const
+bool bsp(Point const a, Point const b, Point const c, Point const point) 
 {
-    return point_y;
-}
-
-Fixed Point::area(Point const p1, Point const p2, Point const p3)
-{
+    Fixed abc = area(a, b, c);
+    Fixed pab = area(point, a, b);
+    Fixed pbc = area(point, b, c);
+    Fixed pca = area(point, c, a);
     
-    Fixed result = std::abs((p1.getX() * (p2.getY() - p3.getY()) + 
-                           p2.getX() * (p3.getY() - p1.getY()) + 
-                           p3.getX() * (p1.getY() - p2.getY())).toFloat()) / 2.0f;
-    
-    return result;
-}
-
-bool Point::bsp(Point const a, Point const b, Point const c, Point const point) 
-{
-    Fixed areaABC = Point::area(a, b, c);
-    Fixed areaPAB = Point::area(point, a, b);
-    Fixed areaPBC = Point::area(point, b, c);
-    Fixed areaPCA = Point::area(point, c, a);
-
-    return (areaABC == (areaPAB + areaPBC + areaPCA));
+    if (pab == Fixed(0) || pbc == Fixed(0) || pca == Fixed(0))
+        return false;
+        
+    return (pab + pbc + pca) == abc;
 }
