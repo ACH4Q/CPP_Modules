@@ -1,34 +1,34 @@
-#include "ScravTrap.hpp"
+#include "ScavTrap.hpp"
 
-ScravTrap::ScravTrap() : ClapTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {  
     name = "Default";
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "ScravTrap Default constructor called for " << name << std::endl;
+    std::cout << "ScavTrap Default constructor called for " << name << std::endl;
 
 }
 
-ScravTrap::ScravTrap(std::string _name) : ClapTrap(_name)
+ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 {
     name = _name;
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "ScravTrap Parameterized constructor called for " << _name << std::endl;
+    std::cout << "ScavTrap Parameterized constructor called for " << _name << std::endl;
 }
 
-ScravTrap::ScravTrap(const ScravTrap& other) : ClapTrap(other)
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
     if (this != &other)
     {
         *this = other;
-        std::cout << "ScravTrap Copy constructor called for " << name << std::endl;
+        std::cout << "ScavTrap Copy constructor called for " << name << std::endl;
     }
 }
 
-ScravTrap& ScravTrap::operator=(const ScravTrap& other)
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
     if (this != &other)
     {
@@ -37,21 +37,21 @@ ScravTrap& ScravTrap::operator=(const ScravTrap& other)
         this->energyPoints = other.energyPoints;
         this->attackDamage = other.attackDamage;
     }
-    std::cout << "ScravTrap Copy assignment operator called for " << name << std::endl;
+    std::cout << "ScavTrap Copy assignment operator called for " << name << std::endl;
     return *this;
 }
 
-ScravTrap::~ScravTrap()
+ScavTrap::~ScavTrap()
 {
-    std::cout << "ScravTrap Destructor called for " << name << std::endl;
+    std::cout << "ScavTrap Destructor called for " << name << std::endl;
 }
 
-void ScravTrap::guardGate()
+void ScavTrap::guardGate()
 {
-    std::cout << "ScravTrap is now in Gatekeeper mode" << std::endl;
+    std::cout << "ScavTrap is now in Gatekeeper mode" << std::endl;
 }
 
-void ScravTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string& target)
 { 
     if (energyPoints == 0 || hitPoints == 0)
     {

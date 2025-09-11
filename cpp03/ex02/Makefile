@@ -1,6 +1,6 @@
 NAME = ClapTrap
 
-SRC = main.cpp ClapTrap.cpp ScravTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 FLAGS = -std=c++98
 
