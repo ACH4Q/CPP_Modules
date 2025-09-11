@@ -7,7 +7,7 @@ int main()
     ClapTrap clap("Clappy");
 
     std::cout << "\n----- Creating ScavTrap -----" << std::endl;
-    ScavTrap scav("Scavvy");
+    ScravTrap scav("Scavvy");
 
     std::cout << "\n----- Testing attack() -----" << std::endl;
     clap.attack("target1");
