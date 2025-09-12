@@ -7,7 +7,7 @@ int main()
 
     clappy.attack("Trappy");
     trappy.takeDamage(4);
-    trappy.beRepaired(-5);
+    trappy.beRepaired(3);
 
     trappy.attack("Clappy");
     clappy.takeDamage(0);

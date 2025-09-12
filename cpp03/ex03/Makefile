@@ -1,8 +1,8 @@
 NAME = ClapTrap
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp Diamond.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-FLAGS = -std=c++98
+FLAGS = -std=c++98 
 
 all: $(NAME)
 

@@ -2,7 +2,7 @@ NAME = ClapTrap
 
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
-FLAGS = -std=c++98 -Wno-shadow
+FLAGS = -std=c++98 
 
 all: $(NAME)
 

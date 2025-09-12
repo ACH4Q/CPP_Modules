@@ -17,7 +17,7 @@ int main()
     scav.takeDamage(30);
 
     std::cout << "\n----- Testing beRepaired() -----" << std::endl;
-    scav.beRepaired(1000);
+    scav.beRepaired(10);
 
     std::cout << "\n----- Testing ScavTrap special ability -----" << std::endl;
     scav.guardGate();
