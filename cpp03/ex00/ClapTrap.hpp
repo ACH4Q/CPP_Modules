@@ -4,15 +4,16 @@
 #include <string>
 #include <iostream>
 
+
 class ClapTrap
 {
 
 private:
 
     std::string name;
-    int hitPoints;
-    int energyPoints;
-    int attackDamage;
+    unsigned int hitPoints;
+    unsigned int energyPoints;
+    unsigned int attackDamage;
 
 public:
 
@@ -23,8 +24,8 @@ public:
     ~ClapTrap();
 
     void attack(const std::string& target);
-    void takeDamage(int amount);
-    void beRepaired(int amount);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
 #endif

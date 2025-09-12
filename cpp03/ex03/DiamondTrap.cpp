@@ -1,7 +1,7 @@
 #include "DiamondTrap.hpp"
 
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clapname"), ScavTrap(name), FragTrap(name), name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
 {
     FragTrap::hitPoints = 100;   
     ScavTrap::energyPoints = 50; 
@@ -27,7 +27,7 @@ void DiamondTrap::whoAmI()
 }
 
 
-DiamondTrap::DiamondTrap() : ClapTrap("Default_clapname"), ScavTrap(), FragTrap(), name("Default") {}
+DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), name("Default") {}
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(other), FragTrap(other)
 {
