@@ -1,6 +1,6 @@
-NAME = ClapTrap
+NAME = Sound
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 FLAGS = -std=c++98
 
