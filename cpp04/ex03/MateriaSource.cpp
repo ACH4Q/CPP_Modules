@@ -1,4 +1,3 @@
-
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource()
@@ -30,7 +29,8 @@ MateriaSource::~MateriaSource()
 
 MateriaSource& MateriaSource::operator=(const MateriaSource &other)
 {
-    if (this != &other) {
+    if (this != &other)
+    {
         for (int i = 0; i < 4; i++)
         {
             delete this->_templates[i];
