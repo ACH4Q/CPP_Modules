@@ -10,12 +10,12 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-std::string GetName() const
+std::string Bureaucrat::GetName() const
 {
-    return(this->)
+    return(this->name);
 }
 
-int GetGrade()
+int Bureaucrat::GetGrade()
 {
-
+    return(this->grade);
 }
