@@ -15,8 +15,8 @@ public:
     Bureaucrat& operator<<(const Bureaucrat& other);
     std::string GetName() const;
     int GetGrade();
-    void GradeTooHighException();
-    void GradeTooLowException();
+    void GradeTooHighException() throw();
+    void GradeTooLowException() throw();
 };
 
 
