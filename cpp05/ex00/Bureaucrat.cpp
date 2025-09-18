@@ -19,3 +19,8 @@ int Bureaucrat::GetGrade()
 {
     return(this->grade);
 }
+
+void Bureaucrat::GradeTooHighException()
+{
+    
+}
