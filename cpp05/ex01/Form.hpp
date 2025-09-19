@@ -5,6 +5,8 @@
 #include <exception>
 #include <string>
 
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -15,6 +17,7 @@ private:
 public:
     Form();
     Form(const Form& other);
+    Form(const std::string& name, int grade_sign, int grade_exec);
     Form& operator=(const Form& other);
     ~Form();
 
@@ -22,6 +25,7 @@ public:
     bool GetBool();
     int GetGradeSign() const;
     int GetGradeExec() const;
+    void beSigned(const Bureaucrat& bureaucrat);
     class GradeTooHighException : public std::exception
     {
         public :
@@ -34,7 +38,7 @@ public:
     };
 
 };
-std::ostream&  operator<<(std::ostream& os,const Form& other);
+std::ostream& operator<<(std::ostream& os,const Form& F);
 
 
 
