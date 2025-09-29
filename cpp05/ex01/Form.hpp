@@ -22,19 +22,20 @@ public:
     ~Form();
 
     std::string GetName() const;
-    bool GetBool();
+    bool GetIsSigned() const;
     int GetGradeSign() const;
     int GetGradeExec() const;
     void beSigned(const Bureaucrat& bureaucrat);
-    class GradeTooHighException : public std::exception
-    {
-        public :
-            const char * GradeTooHighException::what() throw();
-    };
+
     class GradeTooLowException : public std::exception
     {
         public :
-            const char* GradeTooLowException::what() throw();
+            virtual const char* what() const throw();
+    };
+    class GradeTooHighException : public std::exception
+    {
+        public :
+            virtual const char* what() const throw();
     };
 
 };
