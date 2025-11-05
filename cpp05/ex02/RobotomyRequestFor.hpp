@@ -2,6 +2,7 @@
 #define ROBOTOMYREQUESTFORM_H
 
 #include "AForm.hpp"
+#include <iostream>
 
 class RobotomyRequestFor : public AForm 
 {
@@ -11,6 +12,7 @@ public:
     RobotomyRequestFor(const std::string& target);
     RobotomyRequestFor(const RobotomyRequestFor& other);
     ~RobotomyRequestFor();
+    virtual void executing();
 };
 
 #endif
