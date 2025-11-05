@@ -11,7 +11,20 @@ void ShrubberyCreationForm::executing()
     std::ofstream outfile((this->target + "_shrubbery").c_str());
     if (!outfile.is_open())
         std::cerr << "cannot open file" << std::endl;
-    outfile << "" << std::endl;
+        outfile << "                                  ,--,        ,--,                 " << std::endl;
+    outfile << "   ,---,         ,----..        ,--.'|      ,--.'|    ,----..      " << std::endl;
+    outfile << "  '  .' \\       /   /   \\    ,--,  | :   ,--,  | :   /   /   \\     " << std::endl;
+    outfile << " /  ;    '.    |   :     :,---.'|  : ',---.'|  : '  /   .     :    " << std::endl;
+    outfile << ":  :       \\   .   |  ;. /|   | : _' |;   : |  | ; .   /   ;.  \\   " << std::endl;
+    outfile << ":  |   /\\   \\  .   ; /--` :   : |.'  ||   | : _' |.   ;   /  ` ;   " << std::endl;
+    outfile << "|  :  ' ;.   : ;   | ;    |   ' '  ; ::   : |.'  |;   |  ; \\ ; |   " << std::endl;
+    outfile << "|  |  ;/  \\   \\|   : |    '   |  .'. ||   ' '  ; :|   :  | ; | '   " << std::endl;
+    outfile << "'  :  | \\  \\ ,'.   | '___ |   | :  | '\\   \\  .'. |.   |  ' ' ' :   " << std::endl;
+    outfile << "|  |  '  '--'  '   ; : .'|'   : |  : ; `---`:  | ''   ;  \\; /  |   " << std::endl;
+    outfile << "|  :  :        '   | '/  :|   | '  ,/       '  ; | \\   \\  ',  . \\  " << std::endl;
+    outfile << "|  | ,'        |   :    / ;   : ;--'        |  : ;  ;   :      ; | " << std::endl;
+    outfile << "`--''           \\   \\ .'  |   ,/            '  ,/    \\   \\ .'`--\"  " << std::endl;
+    outfile << "                 `---`    '---'             '--'      `---` " << std::endl;
     outfile.close();
 }
 
