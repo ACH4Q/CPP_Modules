@@ -19,7 +19,7 @@ public:
     AForm(const AForm& other);
     AForm(const std::string& name, int grade_sign, int grade_exec);
     AForm& operator=(const AForm& other);
-    ~AForm();
+    virtual ~AForm();
 
     std::string GetName() const;
     bool GetIsSigned() const;
@@ -37,7 +37,7 @@ public:
         public :
             virtual const char* what() const throw();
     };
-    virtual int execute(Bureaucrat const & executor) const = 0;
+    virtual void executing() const = 0;
 };
 std::ostream& operator<<(std::ostream& os,const AForm& F);
 

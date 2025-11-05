@@ -6,9 +6,10 @@
 class RobotomyRequestFor : public AForm 
 {
 private:
-    
+    std::string target;
 public:
-    RobotomyRequestFor();
+    RobotomyRequestFor(const std::string& target);
+    RobotomyRequestFor(const RobotomyRequestFor& other);
     ~RobotomyRequestFor();
 };
 
