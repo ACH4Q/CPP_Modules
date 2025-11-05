@@ -26,6 +26,7 @@ public:
     int GetGradeSign() const;
     int GetGradeExec() const;
     void beSigned(const Bureaucrat& bureaucrat);
+    void execute(Bureaucrat const & executor) const;
 
     class GradeTooLowException : public std::exception
     {
@@ -37,10 +38,13 @@ public:
         public :
             virtual const char* what() const throw();
     };
+    class FormNotSignedException : public std::exception
+    {
+        public: 
+            virtual const char* what() const throw();
+    };
     virtual void executing() const = 0;
 };
 std::ostream& operator<<(std::ostream& os,const AForm& F);
-
-
 
 #endif

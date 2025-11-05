@@ -4,6 +4,7 @@
 #include <iostream>
 #include <exception>
 
+class AForm;
 
 class Bureaucrat
 {
@@ -31,6 +32,7 @@ public:
         public :
             virtual const char* what() const throw();
     };
+    void executeForm(AForm const & form) const;
 
 };
 
