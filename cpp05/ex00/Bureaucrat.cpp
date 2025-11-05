@@ -1,7 +1,5 @@
 #include "Bureaucrat.hpp"
 
-
-
 Bureaucrat::Bureaucrat() : name("Default Bureaucrat")
 {
     std::cout << "Bureaucrat " << name << "is created" << std::endl;

@@ -1,6 +1,6 @@
-NAME = exception
+NAME = multiple_forms
 
-SRC = *.cpp
+SRC = main.cpp AForm.cpp Bureaucrat.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

@@ -36,6 +36,4 @@ public:
 
 std::ostream& operator<<(std::ostream& os,const Bureaucrat& Bureaucrat);
 
-
-
 #endif

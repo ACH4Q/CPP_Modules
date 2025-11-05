@@ -3,37 +3,83 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <cstdlib>
-#include <ctime>
+#include "Intern.hpp"
+#include <iostream>
 
-int main() {
-    // Seed the random number generator for RobotomyRequestForm
-    std::srand(std::time(0));
+int main()
+{
+    // --- Setup ---
+    Intern someRandomIntern;
+    Bureaucrat highGradeBureaucrat("Zapp Brannigan", 5);
 
-    // Create some bureaucrats
-    Bureaucrat highGrade("Head Bureaucrat", 1);
-    Bureaucrat midGrade("Mid-Level Manager", 40);
-    Bureaucrat lowGrade("Intern", 140);
+    // Pointers to hold the forms our Intern will create
+    AForm* robotomyForm = NULL;
+    AForm* pardonForm = NULL;
+    AForm* shrubberyForm = NULL;
+    AForm* nonExistentForm = NULL;
 
-    // Create one of each form
-    ShrubberyCreationForm shrub("home");
-    RobotomyRequestForm robot("Bender");
-    PresidentialPardonForm pardon("Ford Prefect");
+    std::cout << "--- TEST 1: INTERN CREATING FORMS ---\n";
 
-    std::cout << "\n--- SHRUBBERY FORM TESTS ---\n";
-    lowGrade.signForm(shrub);
-    lowGrade.executeForm(shrub); // Fails, grade 140 is not high enough (needs 137)
-    midGrade.executeForm(shrub);
+    try
+    {
+        // Test successful creation of all three forms
+        std::cout << "\nAttempting to create a RobotomyRequestForm...\n";
+        robotomyForm = someRandomIntern.makeForm("robotomy request", "Bender");
 
-    std::cout << "\n--- ROBOTOMY FORM TESTS ---\n";
-    midGrade.signForm(robot);
-    midGrade.executeForm(robot);
-    highGrade.executeForm(robot); // Should also work
+        std::cout << "\nAttempting to create a PresidentialPardonForm...\n";
+        pardonForm = someRandomIntern.makeForm("presidential pardon", "Fry");
 
-    std::cout << "\n--- PARDON FORM TESTS ---\n";
-    highGrade.executeForm(pardon); // Fails, form not signed
-    highGrade.signForm(pardon);
-    highGrade.executeForm(pardon);
+        std::cout << "\nAttempting to create a ShrubberyCreationForm...\n";
+        shrubberyForm = someRandomIntern.makeForm("shrubbery creation", "The Garden");
+
+        // Test failure case for a form that does not exist
+        std::cout << "\nAttempting to create a non-existent form...\n";
+        nonExistentForm = someRandomIntern.makeForm("resign from duty form", "Philip");
+    }
+    catch (const std::exception& e)
+    {
+        // This catch block should execute for the non-existent form
+        std::cerr << "Caught an exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "\n--- TEST 2: BUREAUCRAT INTERACTING WITH CREATED FORMS ---\n";
+
+    // We check if the pointers are not NULL before using them.
+    // This is good practice, especially since one of them failed to be created.
+    if (robotomyForm)
+    {
+        std::cout << "\n--- Interacting with Robotomy Form ---\n";
+        highGradeBureaucrat.signForm(*robotomyForm);
+        highGradeBureaucrat.executeForm(*robotomyForm);
+    }
+    
+    if (pardonForm)
+    {
+        std::cout << "\n--- Interacting with Pardon Form ---\n";
+        highGradeBureaucrat.signForm(*pardonForm);
+        highGradeBureaucrat.executeForm(*pardonForm);
+    }
+    
+    if (shrubberyForm)
+    {
+        std::cout << "\n--- Interacting with Shrubbery Form ---\n";
+        highGradeBureaucrat.signForm(*shrubberyForm);
+        highGradeBureaucrat.executeForm(*shrubberyForm);
+    }
+
+    if (nonExistentForm == NULL)
+    {
+        std::cout << "\n--- Verifying Non-Existent Form ---\n";
+        std::cout << "As expected, the pointer for the non-existent form is NULL.\n";
+    }
+
+
+    // --- Cleanup: Free the memory allocated by the Intern ---
+    std::cout << "\n--- CLEANING UP MEMORY ---\n";
+    delete robotomyForm;
+    delete pardonForm;
+    delete shrubberyForm;
+    // No need to delete nonExistentForm as it is NULL
 
     return 0;
 }

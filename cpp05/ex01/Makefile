@@ -1,6 +1,6 @@
-NAME = exception
+NAME = Form
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

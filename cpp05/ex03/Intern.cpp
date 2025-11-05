@@ -17,7 +17,7 @@ const char* Intern::FormNotFound::what() const throw()
 AForm *Intern::makeForm(const std::string& Formname,const std::string& target)
 {
     int FormIndex = -1;
-
+    AForm* newForm = NULL;
     std::string validForms[] = {"shrubbery creation","robotomy creation", "presidential pardon"};
 
     for (size_t i = 0; i < 3; i++)
@@ -28,7 +28,7 @@ AForm *Intern::makeForm(const std::string& Formname,const std::string& target)
             break;
         }        
     }
-    AForm* newForm = NULL;
+
     switch (FormIndex)
     {
     case 0:
@@ -43,5 +43,7 @@ AForm *Intern::makeForm(const std::string& Formname,const std::string& target)
     default:
         throw Intern::FormNotFound();
     }
+
+    std::cout << "Intern creates " << newForm->GetName() << std::endl;
     return (newForm);
 }
