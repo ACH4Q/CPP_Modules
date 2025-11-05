@@ -18,7 +18,7 @@ AForm *Intern::makeForm(const std::string& Formname,const std::string& target)
 {
     int FormIndex = -1;
     AForm* newForm = NULL;
-    std::string validForms[] = {"shrubbery creation","robotomy creation", "presidential pardon"};
+    std::string validForms[] = {"shrubbery creation","robotomy request", "presidential pardon"};
 
     for (size_t i = 0; i < 3; i++)
     {
@@ -32,13 +32,13 @@ AForm *Intern::makeForm(const std::string& Formname,const std::string& target)
     switch (FormIndex)
     {
     case 0:
-    newForm = new RobotomyRequestForm(target);
+    newForm = new  ShrubberyCreationForm(target);
         break;
     case 1:
-    newForm = new PresidentialPardonForm(target);
+    newForm = new RobotomyRequestForm(target);
         break;
     case 2:
-    newForm = new ShrubberyCreationForm(target);
+    newForm = new PresidentialPardonForm(target);
         break;
     default:
         throw Intern::FormNotFound();

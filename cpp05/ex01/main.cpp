@@ -1,23 +1,29 @@
 #include "Bureaucrat.hpp"
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int main()
 {
-	std::cout << "TESTING" << std::endl;
-	try
-	{
-		Bureaucrat b1("test", 2);
-		std::cout << b1 << std::endl;
-		b1.DecrementGrade();
-		std::cout << "After increment: " << b1 << std::endl;
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
-	std::cout << std::endl;
+    Bureaucrat highGradeBureaucrat("Hermes", 30);
+    Bureaucrat lowGradeBureaucrat("Zoidberg", 150);
+    Form taxForm("Form 28B", 50, 25);
 
+    std::cout << "\n--- INITIAL STATUS ---\n";
+    std::cout << highGradeBureaucrat << std::endl;
+    std::cout << lowGradeBureaucrat << std::endl;
+    std::cout << taxForm << std::endl;
 
-	return (0);
+    std::cout << "\n--- TEST 1: LOW GRADE SIGNING (FAIL) ---\n";
+    lowGradeBureaucrat.signForm(taxForm);
+    std::cout << "Form status after attempt: " << taxForm << std::endl;
+
+    std::cout << "\n--- TEST 2: HIGH GRADE SIGNING (SUCCESS) ---\n";
+    highGradeBureaucrat.signForm(taxForm);
+    std::cout << "Form status after attempt: " << taxForm << std::endl;
+    
+    std::cout << "\n--- TEST 3: SIGNING AN ALREADY SIGNED FORM ---\n";
+    highGradeBureaucrat.signForm(taxForm);
+    std::cout << "Form status after attempt: " << taxForm << std::endl;
+
+    return 0;
 }
