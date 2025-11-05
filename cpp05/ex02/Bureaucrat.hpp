@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include <string>
 
 class AForm;
 
@@ -11,17 +12,21 @@ class Bureaucrat
 private:
     const std::string name;
     int grade;
+
 public:
     Bureaucrat();
     Bureaucrat(const std::string& _name, int grade);
     ~Bureaucrat();
     Bureaucrat(const Bureaucrat& other);
     Bureaucrat& operator=(const Bureaucrat& other);
+
     std::string GetName() const;
     int GetGrade() const;
     void IncrementGrade();
     void DecrementGrade();
-    void signForm(AForm& form) const ;
+
+    void signForm(AForm& form);
+    void executeForm(AForm const & form) const;
 
     class GradeTooLowException : public std::exception
     {
@@ -33,12 +38,8 @@ public:
         public :
             virtual const char* what() const throw();
     };
-    void executeForm(AForm const & form) const;
-
 };
 
-std::ostream& operator<<(std::ostream& os,const Bureaucrat& Bureaucrat);
-
-
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

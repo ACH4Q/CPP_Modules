@@ -2,7 +2,7 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <iostream>
+#include <string>
 
 class PresidentialPardonForm : public AForm
 {
@@ -15,6 +15,4 @@ public:
     virtual void executing() const;
 };
 
-
-
-#endif
+#endif 

@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <exception>
@@ -40,7 +40,7 @@ public:
     };
     class FormNotSignedException : public std::exception
     {
-        public: 
+        public:
             virtual const char* what() const throw();
     };
     virtual void executing() const = 0;

@@ -1,11 +1,10 @@
-#ifndef ROBOTOMYREQUESTFORM_H
-#define ROBOTOMYREQUESTFORM_H
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include <iostream>
 #include <cstdlib>
 
-class RobotomyRequestForm : public AForm 
+class RobotomyRequestForm : public AForm
 {
 private:
     std::string target;
@@ -16,4 +15,4 @@ public:
     virtual void executing() const;
 };
 
-#endif
+#endif 
