@@ -13,5 +13,4 @@ void RobotomyRequestFor::executing()
         std::cout << this->target << "has succeded to be robotic" << std::endl;
     else
         std::cout << this->target << "has failed to be robotic"<< std::endl;
-    
 }
