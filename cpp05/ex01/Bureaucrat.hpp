@@ -24,6 +24,7 @@ public:
     int GetGrade() const;
     void IncrementGrade();
     void DecrementGrade();
+
     void signForm(Form& form);
 
     class GradeTooLowException : public std::exception

@@ -7,44 +7,36 @@ Intern::Intern() {}
 
 Intern::~Intern() {}
 
-Intern::Intern(const Intern& other)
-{
+Intern::Intern(const Intern& other) {
     (void)other;
 }
 
-Intern& Intern::operator=(const Intern& other)
-{
+Intern& Intern::operator=(const Intern& other) {
     (void)other;
     return (*this);
 }
 
-const char* Intern::FormNotFound::what() const throw()
-{
+const char* Intern::FormNotFoundException::what() const throw() {
     return "Intern Error: Form not found";
 }
 
-AForm *Intern::makeForm(const std::string& Formname,const std::string& target)
-{
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) {
     AForm* newForm = NULL;
-    std::string validForms[] =
-    {
+    std::string validForms[] = {
         "shrubbery creation",
         "robotomy request",
         "presidential pardon"
     };
 
     int formIndex = -1;
-    for (int i = 0; i < 3; i++)
-    {
-        if (Formname == validForms[i])
-        {
+    for (int i = 0; i < 3; i++) {
+        if (formName == validForms[i]) {
             formIndex = i;
             break;
         }
     }
 
-    switch (formIndex)
-    {
+    switch (formIndex) {
         case 0:
             newForm = new ShrubberyCreationForm(target);
             break;
@@ -55,7 +47,7 @@ AForm *Intern::makeForm(const std::string& Formname,const std::string& target)
             newForm = new PresidentialPardonForm(target);
             break;
         default:
-            throw Intern::FormNotFound();
+            throw Intern::FormNotFoundException();
     }
 
     std::cout << "Intern creates " << newForm->GetName() << std::endl;
