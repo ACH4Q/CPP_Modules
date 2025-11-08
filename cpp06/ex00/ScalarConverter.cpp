@@ -17,5 +17,18 @@ void ScalarConverter::convert(const std::string& target)
         std::cout << "float convertion " << static_cast<float>(doub) << std::endl;
         std:: cout << "double convertion " << doub << std::endl;
     }
+
+    char *end = NULL;
+    double dnull = std::strtod(target.c_str() , &end); 
+
+    if (!(target.length() == 1) || target == "f" && target.c_str())
+    {
+        std::cout << "char impossbile" << std::endl;
+        std::cout << "int impossible" << std::endl;
+        std::cout << "float impossible" << std::endl;
+    }
+    double d;
+    static_cast<char>(d);
+    
 }
 
