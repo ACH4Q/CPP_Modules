@@ -4,7 +4,8 @@
 #include "C.hpp"
 #include <iostream>
 #include <cstdlib>
-
+#include <ctime>
+#include <exception>
 
 Base * generate(void)
 {
