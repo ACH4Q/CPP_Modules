@@ -1,7 +1,5 @@
 #include "ScalarConverter.hpp"
-#include <iostream>
-#include <cmath>
-#include <climits>
+
 
 const char* ScalarConverter::ConvertExeption::what() const throw()
 {
