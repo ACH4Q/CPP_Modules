@@ -1,8 +1,9 @@
 #ifndef SERIALIZE_HPP
 #define SERIALIZE_HPP
 
+#include <stdint.h>
 #include "Data.hpp"
-#include <cstdint>
+
 
 class Serialize
 {
@@ -12,8 +13,8 @@ private:
     Serialize operator=(const Serialize& other);
     ~Serialize();
 public:
-    uintptr_t serialize(Data* ptr);
-    Data* deserialize(uintptr_t raw);
+    static uintptr_t serialize(Data* ptr);
+    static Data* deserialize(uintptr_t raw);
 };
 
 
