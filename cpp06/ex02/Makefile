@@ -1,6 +1,6 @@
-NAME = casting
+NAME = dynamic_casting
 
-SRC = *.cpp
+SRC = Base.cpp main.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

@@ -1,6 +1,6 @@
-NAME = casting
+NAME = reinterpreter_casting
 
-SRC = *.cpp
+SRC = Serialize.cpp main.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 

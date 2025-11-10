@@ -8,22 +8,21 @@
 #include <cmath>
 #include <limits>
 #include <iomanip>
+#include <string>
+
+
+
 
 class ScalarConverter
 {
-private:
-    ScalarConverter(std::string name);
-    ScalarConverter(const ScalarConverter& other);
-    ScalarConverter operator=(const ScalarConverter& other);
-    ~ScalarConverter();
-public:
-    static void convert(const std::string& target);
-    class ConvertExeption : public std::exception
-    {
-        public:
-            const char* what() const throw();
-    };
- 
+	private:
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter& other);
+		ScalarConverter& operator=(const ScalarConverter& other);
+		~ScalarConverter();
+
+	public:
+		static void convert(const std::string& literal);
 };
 
 #endif
