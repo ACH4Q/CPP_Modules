@@ -1,10 +1,22 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 
-template<typename T> T iter(T *addr,const int len,void (*F)(T &))
+template<typename T>
+void iter(T *addr, int len, void (*F)(T &))
 {
-    if (arr = NULL || F = NULL;)
-        return ;
+    if (addr == NULL || F == NULL)
+        return;
+    for (int i = 0; i < len; i++) 
+    {
+        F(addr[i]);
+    }
+}
+
+template<typename T>
+void iter(const T *addr, int len, void (*F)(const T &))
+{
+    if (addr == NULL || F == NULL)
+        return;
     for (int i = 0; i < len; i++)
     {
         F(addr[i]);
