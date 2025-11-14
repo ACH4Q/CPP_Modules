@@ -26,8 +26,18 @@ public:
         public:
             virtual const char * what() const throw();
     };
-     
+    
+    template<typename T>
+    void addnumbers(T begin, T end)
+    {
+        if (std::distance(begin,end) + myVector + 1 > N)
+            throw SpanIsNotCorrect();
+        myVector.insert(myVector.end(),begin, end);
+    }    
 };
+
+
+
 
 
 #endif
