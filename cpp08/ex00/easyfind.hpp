@@ -1,21 +1,23 @@
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-template<typename T>
+#include <algorithm>  
+#include <iostream>   
+#include <stdexcept> 
 
+template<typename T>
 void easyfind(T &obj, int i)
-{
+{ 
     typename T::iterator it = std::find(obj.begin(), obj.end(), i);
 
-    if(it != obj.end())
+    if (it != obj.end())
     {
-        std::cout << "Element found " << *it << std::endl;
+        std::cout << "Element found: " << *it << std::endl;
     }
     else
     {
-            throw std::runtime_error("Element not found ");
+        throw std::runtime_error("Element not found");
     }
 }
-
 
 #endif
