@@ -30,16 +30,22 @@ void Span::addNumber(int i)
 
 const char * Span::SpanIsNotCorrect::what() const throw()
 {
-
+    return "Span Error: Not enough numbers or capacity is full";
 }
 
 int Span::shortestSpan()
 {
     if (myVector.size() < 2)
         throw SpanIsNotCorrect();
-    int min_value = 0;
-    int max_value = 1;
-    return ()
+    std::vector<int> sortedVec = myVector;
+    std::sort(myVector.begin(),myVector.end());
+    int mini_span = 2147483647;
+    for (size_t i = 0; i < sortedVec.size() - 1; ++i)
+    {
+        if (sortedVec[i + 1] - sortedVec[i] < mini_span)
+            mini_span = sortedVec[i + 1] - sortedVec[i];
+    }
+    return mini_span; 
 }
 
 int Span::longestSpan()
