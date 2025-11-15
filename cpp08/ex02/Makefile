@@ -1,7 +1,6 @@
 NAME = STL
 
-SRC = main.cpp Span.cpp
-
+SRC = main.cpp 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
