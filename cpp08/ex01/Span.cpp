@@ -5,7 +5,6 @@ Span::Span() : N(0) {}
 
 Span::Span(unsigned int _N) : N(_N) 
 {
-    myVector.reserve(_N);
 }
 
 Span::Span(const Span& other)
