@@ -15,7 +15,7 @@ private:
 
         void loadDatabase();
         void validateDate(const std::string& date);
-        void validateValue(const std::string& valueStr);
+        void validateValue(double value);
 public:
     BitcoinExchange();
     BitcoinExchange(const BitcoinExchange& other);

@@ -67,17 +67,50 @@ void BitcoinExchange::processInputFile(const std::string& filename)
         std::string seperator;
         std::string date;
         std::stringstream ss(line);
-        double value;   
+        double value;
+        if (ss >> date >> seperator && seperator == "|" && ss >> value)
+        {
+            try
+            {
+                validateDate(date);
+                validateValue(value);
+                std::map<std::string,double>::iterator it = _data.lower_bound(date);
+                if (it == _data.end() || (it != _data.begin() && it->first != date))
+                {
+                    --it;
+                }
+                double result = value * it->second;
+                std::cout << date << "--> " << value << "=" << result << std::endl;
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+            
+        }
+        else
+            std::cerr << "bad input" << std::endl;
     }
     
 }
 
 void BitcoinExchange::validateDate(const std::string& date)
 {
-
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+        throw std::runtime_error("invalid date");
+    int year = std::atoi(date.substr(0,4).c_str());
+    int month = std::atoi(date.substr(5,2).c_str());
+    int day = std::atoi(date.substr(8,5).c_str());
+    if (month < 1 || month > 12 || day < 1 || day > 31 || year < 1)
+    {
+        std::cerr << "invalid month or day or year" << std::endl;
+    }
 }
 
-void BitcoinExchange::validateValue(const std::string& valueStr)
+void BitcoinExchange::validateValue(double value)
 {
-    
+    if (value < 1)
+        throw std::runtime_error("value is too low min value is 1");
+    else if (value > 1000)
+        throw std::runtime_error("value to high max value is 1000");    
 }
