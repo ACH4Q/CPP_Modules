@@ -1,6 +1,6 @@
 NAME = STL
 
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
