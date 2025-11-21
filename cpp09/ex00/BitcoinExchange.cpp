@@ -50,6 +50,28 @@ void BitcoinExchange::loadDatabase()
     }
 }
 
+void BitcoinExchange::processInputFile(const std::string& filename)
+{
+    std::ifstream inputFile(filename.c_str());
+    if (!inputFile.is_open())
+    {
+        std::cerr << "could not open file" << std::endl;
+    }
+    std::string line;
+    if (std::getline(inputFile,line) && line != "date | value")
+    {
+        std::cerr << "Error : Invalid header" << std::endl;
+    }
+    while (std::getline(inputFile,line))
+    {
+        std::string seperator;
+        std::string date;
+        std::stringstream ss(line);
+        double value;   
+    }
+    
+}
+
 void BitcoinExchange::validateDate(const std::string& date)
 {
 
@@ -57,10 +79,5 @@ void BitcoinExchange::validateDate(const std::string& date)
 
 void BitcoinExchange::validateValue(const std::string& valueStr)
 {
-
-}
-
-void BitcoinExchange::processInputFile(const std::string& filename)
-{
-
+    
 }
