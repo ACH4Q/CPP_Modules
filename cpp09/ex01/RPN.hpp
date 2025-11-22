@@ -10,11 +10,10 @@
 # include <cstdlib>
 # include <stdexcept>
 
-template <typename Container = std::deque<int>>
 class RPN
 {
 private:
-    std::stack<int,Container>
+    std::stack<int,std::deque<int>> _mystack;
 public:
     RPN();
     RPN(const RPN& other);
