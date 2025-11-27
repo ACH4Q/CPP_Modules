@@ -31,13 +31,16 @@ PmergeMe::PmergeMe(int argc, char **argv)
 
 bool PmergeMe::_isPositiveNumber(const std::string &str)
 {
-    if (str.empty()) return false;
+    if (str.empty())
+        return false;
     for (size_t i = 0; i < str.length(); ++i)
     {
-        if (!isdigit(str[i])) return false;
+        if (!isdigit(str[i]))
+            return false;
     }
     long val = std::atol(str.c_str());
-    if (val < 0 || val > INT_MAX) return false;
+    if (val < 0 || val > INT_MAX)
+        return false;
     return true;
 }
 
@@ -63,7 +66,6 @@ void PmergeMe::execute()
     size_t limit = _vectorData.size();
     if (limit > 5)
         limit = 5;
-
     for (size_t i = 0; i < limit; ++i)
         std::cout << _vectorData[i] << " ";
     if (_vectorData.size() > 5)
@@ -74,19 +76,16 @@ void PmergeMe::execute()
     _sortVector(_vectorData);
     clock_t endVec = clock();
     double timeVec = double(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
-
     clock_t startDeq = clock();
     _sortDeque(_dequeData);
     clock_t endDeq = clock();
     double timeDeq = double(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000;
-
     std::cout << "After:  ";
     for (size_t i = 0; i < limit; ++i)
         std::cout << _vectorData[i] << " ";
     if (_vectorData.size() > 5)
         std::cout << "[...]";
     std::cout << std::endl;
-
     std::cout << "Time to process a range of " << _vectorData.size() 
               << " elements with std::vector : " << timeVec << " us" << std::endl;
     std::cout << "Time to process a range of " << _dequeData.size() 
@@ -102,13 +101,11 @@ void PmergeMe::_sortVector(std::vector<int> &arr)
     std::vector<std::pair<int, int> > pairs;
     int straggler = -1;
     bool hasStraggler = (arr.size() % 2 != 0);
-
-    if (hasStraggler) straggler = arr.back();
-    
+    if (hasStraggler) 
+        straggler = arr.back();
     size_t end = arr.size();
     if (hasStraggler)
         end = arr.size() - 1;
-
     for (size_t i = 0; i < end; i += 2)
     {
         int n1 = arr[i];
@@ -118,17 +115,13 @@ void PmergeMe::_sortVector(std::vector<int> &arr)
         else         
             pairs.push_back(std::make_pair(n2, n1));
     }
-
     for (size_t i = 0; i < pairs.size(); ++i)
     {
         larger.push_back(pairs[i].first);
     }
-
     _sortVector(larger);
-
     std::vector<int> mainChain = larger;
     std::vector<int> pending;
-    
     for (size_t i = 0; i < mainChain.size(); ++i)
     {
         int target = mainChain[i];
@@ -143,7 +136,8 @@ void PmergeMe::_sortVector(std::vector<int> &arr)
         }
     }
 
-    if (hasStraggler) pending.push_back(straggler);
+    if (hasStraggler)
+        pending.push_back(straggler);
     mainChain.insert(mainChain.begin(), pending[0]);
     _insertInVector(mainChain, pending);
     arr = mainChain;
@@ -157,7 +151,6 @@ void PmergeMe::_insertInVector(std::vector<int> &mainChain, std::vector<int> &pe
     };
     size_t n = 0;
     size_t pendingIndex = 1;
-
     while (pendingIndex < pending.size())
     {
         size_t nextLimit = jacobSeq[n + 1]; 
@@ -177,37 +170,34 @@ void PmergeMe::_insertInVector(std::vector<int> &mainChain, std::vector<int> &pe
 
 void PmergeMe::_sortDeque(std::deque<int> &arr)
 {
-    if (arr.size() <= 1) return;
-
+    if (arr.size() <= 1)
+        return;
     std::deque<int> larger;
     std::deque<int> smaller;
     std::deque<std::pair<int, int> > pairs;
     int straggler = -1;
     bool hasStraggler = (arr.size() % 2 != 0);
-
-    if (hasStraggler) straggler = arr.back();
-    
+    if (hasStraggler)
+        straggler = arr.back();
     size_t end = arr.size();
     if (hasStraggler)
         end = arr.size() - 1;
-
-    for (size_t i = 0; i < end; i += 2) {
+    for (size_t i = 0; i < end; i += 2)
+    {
         int n1 = arr[i];
         int n2 = arr[i+1];
-        if (n1 > n2) pairs.push_back(std::make_pair(n1, n2));
-        else         pairs.push_back(std::make_pair(n2, n1));
+        if (n1 > n2)
+            pairs.push_back(std::make_pair(n1, n2));
+        else
+            pairs.push_back(std::make_pair(n2, n1));
     }
-
     for (size_t i = 0; i < pairs.size(); ++i)
     {
         larger.push_back(pairs[i].first);
     }
-
     _sortDeque(larger);
-
     std::deque<int> mainChain = larger;
     std::deque<int> pending;
-    
     for (size_t i = 0; i < mainChain.size(); ++i)
     {
         int target = mainChain[i];
